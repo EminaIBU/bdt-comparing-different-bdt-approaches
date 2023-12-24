@@ -27,7 +27,7 @@ for directory in directories:
 def execute_script(script_name, output_file):
     with open(output_file, 'w+') as log_file:
         if (script_name == "map_reduce_counting.py"):
-            subprocess.run(["python", script_name, "duplicated_file.csv"], stdout=log_file, stderr=subprocess.STDOUT)
+            subprocess.run(["python", script_name, "Hotel_reviews.csv"], stdout=log_file, stderr=subprocess.STDOUT)
         else:
             subprocess.run(["python", script_name], stdout=log_file, stderr=subprocess.STDOUT)
 
