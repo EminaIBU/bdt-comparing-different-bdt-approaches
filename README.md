@@ -32,7 +32,8 @@ How To Run This?
 ---------------
 
 1. Download/clone this project
-2. Download large dataset from this [URL](https://drive.google.com/file/d/1l9n7nPUh3ZcmBJzbnyg3BgDBVvFIMR0_/view?usp=sharing).\
+2. **IMPORTANT:** Put this project files to `C:/Dev/BigData/` since we used some hardcoded paths in loggig so everythink will work for you.
+3. Download large dataset from this [URL](https://drive.google.com/file/d/1l9n7nPUh3ZcmBJzbnyg3BgDBVvFIMR0_/view?usp=sharing).\
    **NOTE:** We provided smaller dataset inside this project, but best approach is to download the larger one and replace it. 
 4. Run `pip install -r requirements.txt` to install required dependencies
 5. Run `python main.py`
