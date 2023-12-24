@@ -47,7 +47,7 @@ After script is finished you will be able to see console output which will tell 
 
 
 #### Logs
-After successfull run, there will be two folders generated `timing` and `logs` which will store the times and logs fer each of three methods that we used.
+After successfull run, there will be two folders generated `timing` and `logs` which will store the times and logs for each of three methods that we used.
 
 Conclusion
 -------
