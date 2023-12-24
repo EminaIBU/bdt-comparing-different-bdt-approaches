@@ -4,7 +4,7 @@ import time
 spark = SparkSession.builder.appName("RatingCounter").getOrCreate()
 
 # Load CSV file into Spark DataFrame
-df = spark.read.csv("Hotel_reviews.csv", header=True)
+df = spark.read.csv("Hotel_Reviews.csv", header=True)
 
 # Perform grouping and count
 start_time = time.time()

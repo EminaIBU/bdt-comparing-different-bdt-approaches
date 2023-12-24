@@ -5,7 +5,7 @@ import csv, time
 
 ratings_count = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
-with open('Hotel_reviews.csv', newline='', encoding='utf-8') as csvfile:
+with open('Hotel_Reviews.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     
     next(reader)
