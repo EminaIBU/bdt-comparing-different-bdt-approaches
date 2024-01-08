@@ -27,7 +27,8 @@ for directory in directories:
 def execute_script(script_name, output_file):
     with open(output_file, 'w+') as log_file:
         if (script_name == "map_reduce_counting.py"):
-            subprocess.run(["python", script_name, "Hotel_Reviews.csv"], stdout=log_file, stderr=subprocess.STDOUT)
+            #Pass additional argument which will be used to store timing logs for this script
+            subprocess.run(["python", script_name, "Hotel_Reviews.csv", str(os.getcwd())], stdout=log_file, stderr=subprocess.STDOUT)
         else:
             subprocess.run(["python", script_name], stdout=log_file, stderr=subprocess.STDOUT)
 

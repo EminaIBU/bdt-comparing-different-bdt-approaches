@@ -1,5 +1,5 @@
 
-import csv, time
+import csv, time, os
 
 
 
@@ -22,6 +22,12 @@ print("4: " + str(ratings_count.get(4)))
 print("5: " + str(ratings_count.get(5)))
 end_time = time.time() 
 
-file_path = 'C:/Dev/BigData/timing/default_python_time_info.txt'
+#Define timing direcotry
+current_directory = os.getcwd()
+folder_name = "timing"
+file_name = "default_python_time_info.txt"
+
+# Write time details to a file
+file_path = os.path.join(current_directory, folder_name, file_name)
 with open(file_path, 'w+') as file:
     file.write(f"Execution Time: {end_time - start_time} seconds")

@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-import time
+import time, os
 
 spark = SparkSession.builder.appName("RatingCounter").getOrCreate()
 
@@ -14,6 +14,12 @@ end_time = time.time()
 result.show()
 
 
-file_path = 'C:/Dev/BigData/timing/apache_spark_time_info.txt'
+#Define timing direcotry
+current_directory = os.getcwd()
+folder_name = "timing"
+file_name = "apache_spark_time_info.txt"
+
+# Write time details to a file
+file_path = os.path.join(current_directory, folder_name, file_name)
 with open(file_path, 'w+') as file:
     file.write(f"Execution Time: {end_time - start_time} seconds")

@@ -1,8 +1,12 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
-import csv, time
+import csv, time, os, sys
 
 class ReviewCounter(MRJob):
+
+    def configure_args(self):
+        super(ReviewCounter, self).configure_args()
+        self.add_passthru_arg('main_directory', default=None, help='Directory from where the main.py script is started')
 
     # Define Mapper and Reducer Steps
     def steps(self):
@@ -31,8 +35,14 @@ class ReviewCounter(MRJob):
         count = sum(values)
         end_time = time.time()
 
+        #Define timing direcotry
+        current_directory = main_directory
+        folder_name = "timing"
+        file_name = "map_reduce_time_info.txt"
+        file_path = os.path.join(current_directory, folder_name, file_name)
+
         # Write time details to a file
-        file_path = 'C:/Dev/BigData/timing/map_reduce_time_info.txt'
+        file_path = os.path.join(current_directory, folder_name, file_name)
         with open(file_path, 'a+') as file:
             file.write(f"Key: {key}, Execution Time: {end_time - start_time} seconds\n")
 
@@ -41,4 +51,8 @@ class ReviewCounter(MRJob):
 
 # Check for main and run script
 if __name__ == '__main__':
+    #Get 2nd argument and define main_directory from it
+    main_directory = sys.argv[2]
+
+    #Run MapReduce
     ReviewCounter.run()
