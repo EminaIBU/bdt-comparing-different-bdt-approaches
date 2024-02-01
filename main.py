@@ -41,6 +41,9 @@ execute_script("default_python_counting.py", "logs/default_python_log.txt")
 # Execute apache_spark_counting.py
 execute_script("apache_spark_counting.py", "logs/apache_spark_log.txt")
 
+# Execute apache_spark_counting.py
+execute_script("dask_counting.py", "logs/dask_time_info.txt")
+
 # Scripts finished execution
 print("\nAll scripts have finished execution\nLogs are saved into Logs folder\n\n")
 
@@ -48,6 +51,7 @@ print("\nAll scripts have finished execution\nLogs are saved into Logs folder\n\
 # Variables to store execution times for the first two files
 apache_spark_time = None
 default_python_time = None
+dask_time = None
 # Variables to store execution times for the map reduce file
 map_reduce_times = []
 
@@ -63,6 +67,8 @@ for filename in os.listdir(directory):
                 apache_spark_time = float(lines[0].split(":")[1].strip().split()[0])
             elif filename == "default_python_time_info.txt":
                 default_python_time = float(lines[0].split(":")[1].strip().split()[0])
+            elif filename == "dask_time_info.txt":
+                dask_time = float(lines[0].split(":")[1].strip().split()[0])
             elif filename == "map_reduce_time_info.txt":
                 # Extract execution times from lines
                 times = [float(line.split(":")[2].strip().split()[0]) for line in lines]
@@ -89,5 +95,5 @@ print(tabulate(ratings, headers=['Rating (stars)', 'Count'], tablefmt="outline")
 
 # Print table format for Methods and their execution times
 print("\nRequired time to count all ratings for every method")
-formattedResultList = [["Apache Spark", "{:.2f}".format(apache_spark_time)], ["Map Reduce", "{:.2f}".format(max(map_reduce_times))], ["Default python counting", "{:.2f}".format(default_python_time)]]
+formattedResultList = [["Apache Spark", "{:.2f}".format(apache_spark_time)], ["Map Reduce", "{:.2f}".format(max(map_reduce_times))], ["Dask", "{:.2f}".format(dask_time)], ["Default python counting", "{:.2f}".format(default_python_time)]]
 print(tabulate(formattedResultList, headers=['Method', 'Time required to finish (sec)'], tablefmt="outline"))
