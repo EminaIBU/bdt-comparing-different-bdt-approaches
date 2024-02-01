@@ -9,6 +9,7 @@ This is a simple Python application intended to provide a working example of thr
 We will compare three approaches:
 * MapReduce
 * Apache Spark
+* Dask
 * Conventional Python method for counting items
 
 #### MapReduce
@@ -18,6 +19,9 @@ We will use `MRJob` library to implement MapReduce in Python.
 #### Apache Spark
 `Apache Spark`, on the other hand, is a powerful, open-source cluster computing framework that offers in-memory data processing capabilities, enabling faster data analytics.\
 We will use `pyspark` library to implement this in Python
+
+#### Apache Spark
+`Dask` is a parallel computing library in Python that facilitates scalable and flexible processing of larger-than-memory datasets through dynamic task scheduling and coordination.
 
 #### Python's native counting method
 In contrast, Python's native counting method relies on traditional loops and data structures for item enumeration.
@@ -43,7 +47,7 @@ Results
 
 After script is finished you will be able to see console output which will tell you how many Hotel Review ratings we counted and how long each approach required to count them.
 
-![Console Output](https://i.imgur.com/xaN79cA.png)
+![Console Output](https://i.imgur.com/MzMBdZB.png)
 
 
 #### Logs
@@ -52,4 +56,4 @@ After successfull run, there will be two folders generated `timing` and `logs` w
 Conclusion
 -------
 
-We can see that in our case, `Apache Spark` had the best performance, followed by `MapReduce` and we can see that traditional counting method was really slow in this case which confirms that sophisticated Big Data Technologies approaches must be used when we are dealing with large scale datasets.
+We can see that in our case, `Apache Spark` had the best performance, followed by `MapReduce` and `Dask` and we can see that traditional counting method was really slow in this case which confirms that sophisticated Big Data Technologies approaches must be used when we are dealing with large scale datasets.
