@@ -20,7 +20,7 @@ We will use `MRJob` library to implement MapReduce in Python.
 `Apache Spark`, on the other hand, is a powerful, open-source cluster computing framework that offers in-memory data processing capabilities, enabling faster data analytics.\
 We will use `pyspark` library to implement this in Python
 
-#### Apache Spark
+#### Dask
 `Dask` is a parallel computing library in Python that facilitates scalable and flexible processing of larger-than-memory datasets through dynamic task scheduling and coordination.
 
 #### Python's native counting method
